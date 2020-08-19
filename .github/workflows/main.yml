@@ -32,6 +32,7 @@ jobs:
           echo 'the version ${{ matrix.SPARK_VER }}'
           echo 'scala version ${{matrix.SCALA_VER}}'
           echo ${{ matrix.SCALA_VER == '2.12' }}
+          echo ${{ github.ref }}
       - name: condition
         if: ${{ matrix.SCALA_VER == '2.12' }}
         run: echo 'scala 2.12'
