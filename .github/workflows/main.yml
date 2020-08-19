@@ -28,9 +28,12 @@ jobs:
             
     steps:
       - name: test
-        run: echo 'the version ${{ matrix.SPARK_VER }}'
+        run: |
+          echo 'the version ${{ matrix.SPARK_VER }}'
+          echo 'scala version ${{matrix.SCALA_VER}}'
+          echo ${{ matrix.SCALA_VER == '2.12' }}
       - name: condition
-        if: ${{ matrix.SCALA_CER == '2.12' }}
+        if: ${{ matrix.SCALA_VER == '2.12' }}
         run: echo 'scala 2.12'
   # This workflow contains a single job called "build"
   build:
