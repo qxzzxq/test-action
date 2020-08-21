@@ -36,6 +36,9 @@ jobs:
           echo ${{ matrix.SCALA_VER == '2.12' }}
           echo ${{ github.ref }}
           echo ${{github.sha}}
+          echo ${{github.sha[-1]}}
+          echo ${{github.sha[5]}}
+          echo ${{github.sha[-4:]}}
       - name: condition
         if: ${{ matrix.SCALA_VER == '2.12' }}
         run: echo 'scala 2.12'
