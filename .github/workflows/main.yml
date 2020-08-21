@@ -38,6 +38,7 @@ jobs:
           echo ${{ matrix.SCALA_VER == '2.12' }}
           echo ${{ github.ref }}
           echo $SHA
+          gpg -h
       - name: condition
         if: ${{ matrix.SCALA_VER == '2.12' }}
         run: echo 'scala 2.12'
