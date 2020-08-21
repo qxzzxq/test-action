@@ -70,5 +70,5 @@ jobs:
     - name: SNAP version deployment
       if: ${{ startsWith( github.ref, 'refs/tags/test-' ) && contains( github.ref, '-RC' ) }}
       run: |
-        RC_VER=$(echo ${{ github.ref }} | cut -d'-RC' -f 2)
-        echo "mvn clean deploy scala:doc -ntp -B -DskipTests -Dchangelist=-RC$RC_VER"
+        RC_VER=$(echo ${{ github.ref }} | cut -d'-' -f 3)
+        echo "mvn clean deploy scala:doc -ntp -B -DskipTests -Dchangelist=-$RC_VER"
