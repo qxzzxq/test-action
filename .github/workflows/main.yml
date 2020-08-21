@@ -67,3 +67,8 @@ jobs:
         echo test, and deploy your project.
         echo hahaah > test
         cat test
+    - name: SNAP version deployment
+      if: ${{ !startsWith( github.ref, 'refs/tags/test' ) && contains( github.ref, '-RC' ) }}
+      run: |
+        CHANGE_LIST=$(echo ${{ github.ref }} | cut -d'-' -f 3)
+        echo 'mvn clean deploy scala:doc -ntp -B -DskipTests -Dchangelist=$CHANGE_LIST'
