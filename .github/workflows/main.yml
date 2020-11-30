@@ -20,10 +20,10 @@ jobs:
    steps:
      - id: step1
        name: step ONE
-       run: "::set-output name=outKey::outValue" 
+       run: echo "::set-output name=outKey::outValue" 
      - id: step2
        name: step TWO
-       run: "echo ${{ steps.step1.outputs.outKey }}"
+       run: echo ${{ steps.step1.outputs.outKey }}
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
