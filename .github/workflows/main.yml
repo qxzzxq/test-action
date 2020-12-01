@@ -27,9 +27,9 @@ jobs:
          echo "::set-output name=outKey::outValue" 
          echo ${{ env.ENV_KEY }}
          echo ${{ github.ref }}
-         if [[ ${{ github.ref }} == "refs/heads/master" ]]
+         if [[ ${{ github.ref }} == "refs/heads/master" ]]; then
            echo "master branch"
-         elif [[ ${{ github.ref }} == "refs/heads/dev" ]]
+         elif [[ ${{ github.ref }} == "refs/heads/dev" ]]; then
            echo "dev branch"
          fi  
          
