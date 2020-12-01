@@ -27,6 +27,12 @@ jobs:
          echo "::set-output name=outKey::outValue" 
          echo ${{ env.ENV_KEY }}
          echo ${{ github.ref }}
+         if [[ ${{ github.ref }} == "refs/heads/master" ]]
+           echo "master branch"
+         elif [[ ${{ github.ref }} == "refs/heads/dev" ]]
+           echo "dev branch"
+         fi  
+         
      - id: step2
        name: step TWO
        run: echo ${{ steps.step1.outputs.outKey }}
