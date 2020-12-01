@@ -36,6 +36,11 @@ jobs:
      - id: step2
        name: step TWO
        run: echo ${{ steps.step1.outputs.outKey }}
+     
+     - id: step3
+       name: conditional step 3
+       if: ${{ env.ENV_KEY }} == "env_value"
+       run: echo "step 3 condition matches"
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
