@@ -33,19 +33,22 @@ jobs:
            echo "dev branch"
          fi  
          
+     - id: get-env
+       run: echo "::set-output name=environment::prd"
+         
      - id: step2
        name: step TWO
        run: echo ${{ steps.step1.outputs.outKey }}
      
      - id: step3
        name: conditional step 3
-       if: ${{ env.ENV_KEY }} == "env_value"
-       run: echo "step 3 condition matches"
+       if: steps.get-env.outputs.environment == 'prd'
+       run: echo "prd step 3 condition matches"
         
      - id: step4
        name: conditional step 4
-       if: ${{ env.ENV_KEY }} == "env_valueqsdfqsdf"
-       run: echo "step 4 condition matches"
+       if: steps.get-env.outputs.environment == 'dev'
+       run: echo "dev step 4 condition matches"
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
