@@ -11,6 +11,9 @@ on:
     branches: [ master ]
   release:
     types: [published]
+    
+env:
+  ENV_KEY: env_value 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,7 +23,10 @@ jobs:
    steps:
      - id: step1
        name: step ONE
-       run: echo "::set-output name=outKey::outValue" 
+       run: |
+         echo "::set-output name=outKey::outValue" 
+         echo ${{ env.ENV_KEY }}
+         echo ${{ github.ref }}
      - id: step2
        name: step TWO
        run: echo ${{ steps.step1.outputs.outKey }}
