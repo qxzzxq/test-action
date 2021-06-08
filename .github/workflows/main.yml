@@ -27,7 +27,6 @@ jobs:
      - id: step1
        name: step ONE
        run: |
-         git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
          echo "::set-output name=outKey::outValue" 
          echo ${{ env.ENV_KEY }}
          echo ${{ github.ref }}
@@ -53,6 +52,12 @@ jobs:
        name: conditional step 4
        if: steps.get-env.outputs.environment == 'dev'
        run: echo "dev step 4 condition matches"
+       
+     - id: step5
+       name: step five
+       run: |
+         git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > changes.txt
+         cat changes.txt
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
