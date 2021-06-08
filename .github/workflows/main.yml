@@ -58,6 +58,7 @@ jobs:
        run: |
          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > changes.txt
          cat changes.txt
+         git log --name-only
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
