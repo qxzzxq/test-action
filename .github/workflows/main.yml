@@ -61,6 +61,8 @@ jobs:
          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
          echo '============'
          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
+         echo '============'
+         git diff --name-only ${{ github.event.before }} ${{ github.event.after }}
 
 #   test:
 #     runs-on: ${{ matrix.os }}
