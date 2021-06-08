@@ -24,7 +24,7 @@ jobs:
      - id: step1
        name: step ONE
        run: |
-         git diff --name-only HEAD^ HEAD
+         git diff --name-only HEAD~1 HEAD
          echo "::set-output name=outKey::outValue" 
          echo ${{ env.ENV_KEY }}
          echo ${{ github.ref }}
