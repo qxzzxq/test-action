@@ -57,6 +57,9 @@ jobs:
        name: step five
        run: |
          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+         echo '============'
+         git diff --name-only ${{ github.event.before }} ${{ github.sha }}
+
 #   test:
 #     runs-on: ${{ matrix.os }}
 #     strategy:
