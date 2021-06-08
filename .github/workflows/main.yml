@@ -58,6 +58,7 @@ jobs:
      - id: step5
        name: step five
        run: |
+         echo ${{ github.event_name }}
          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
          echo '============'
          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
