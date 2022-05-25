@@ -38,9 +38,6 @@ jobs:
            echo "dev branch"
          fi  
 
-     - run: |
-         chrome --version
-         which chrome
      
      - uses: browser-actions/setup-chrome@latest
 
